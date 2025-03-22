@@ -9,8 +9,9 @@ public record Position(
     }
 
     public Movement getCorrectMovement(Movement movement, Position afterPosition) {
-        while (this.canMove(movement)) {
-            Position newPosition = this.move(movement);
+        Position newPosition = this;
+        while (newPosition.canMove(movement)) {
+            newPosition = newPosition.move(movement);
             if (newPosition.equals(afterPosition)) {
                 return movement;
             }

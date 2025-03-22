@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 public class KnightStateTest {
     @Test
-    void 현재_위치에서_이동할_위치까지_가는_길을_가져올_수_있다() {
+    void 현재_위치에서_나이트가_이동할_위치까지_가는_길을_가져올_수_있다() {
         // given
         PieceState pieceState = new KnightState();
 

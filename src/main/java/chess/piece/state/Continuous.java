@@ -11,21 +11,22 @@ public abstract class Continuous extends StartedPieceState {
         Movement direction = selectDirection(movements, beforePosition, afterPosition);
 
         List<Movement> movablePaths = new ArrayList<>();
-        while (!beforePosition.equals(afterPosition)) {
-            beforePosition.move(direction);
+        Position newPosition = beforePosition;
+        while (!newPosition.equals(afterPosition)) {
+            newPosition = newPosition.move(direction);
             movablePaths.add(direction);
         }
         return movablePaths;
     }
 
     private Movement selectDirection(List<Movement> movements, Position beforePosition, Position afterPosition) {
-        Movement direction = null;
+        Movement direction;
         for (Movement m : movements) {
             direction = beforePosition.getCorrectMovement(m, afterPosition);
+            if (direction != null) {
+                return direction;
+            }
         }
-        if (direction == null) {
-            throw new IllegalStateException("해당 위치로 이동할 수 없습니다.");
-        }
-        return direction;
+        throw new IllegalStateException("해당 위치로 이동할 수 없습니다.");
     }
 }
