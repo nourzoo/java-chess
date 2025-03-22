@@ -1,4 +1,7 @@
 package chess.piece;
 
-public class Piece {
+public abstract class Piece {
+    public Piece() {
+    }
+
 }

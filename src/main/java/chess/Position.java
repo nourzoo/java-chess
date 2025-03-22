@@ -8,6 +8,24 @@ public record Position(
         this(column, row);
     }
 
+    public Movement getCorrectMovement(Movement movement, Position afterPosition) {
+        while (this.canMove(movement)) {
+            Position newPosition = this.move(movement);
+            if (newPosition.equals(afterPosition)) {
+                return movement;
+            }
+        }
+        return null;
+    }
+
+    public boolean canMoveTo(Movement movement, Position afterPosition) {
+        if (this.canMove(movement)) {
+            Position newPosition = this.move(movement);
+            return newPosition.equals(afterPosition);
+        }
+        return false;
+    }
+
     public boolean canMoveUp() {
         return row.canMoveUp(1);
     }
