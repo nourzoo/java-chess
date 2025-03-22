@@ -2,6 +2,14 @@
 
 체스 미션 저장소
 
-## 우아한테크코스 코드리뷰
+## 기물
 
-- [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
+### 불연속적인 기물
+- 폰
+- 나이트
+- 킹
+
+### 연속적인 기물
+- 비숍
+- 룩
+- 퀸
